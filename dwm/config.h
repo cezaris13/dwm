@@ -62,6 +62,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 /*static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };*/
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *emoji[]   = { "/home/pijus/.config/i3/emoji_script/./emoji_script.sh",NULL };
 static const char *corona[]   = { "/home/pijus/Desktop/Programming/corona/./corona.sh",NULL };
 static const char *exito[]   = { "/home/pijus/.config/dwm/autostart/./exit.sh",NULL };
@@ -81,6 +83,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+    { MODKEY,                       XK_z,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -101,25 +104,17 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY, 		XK_e, 	   spawn,	   {.v = emoji } },
-    	{ MODKEY, 		XK_s, 	   spawn,	   {.v = corona } },
+   	{ MODKEY, 		XK_s, 	   spawn,	   {.v = corona } },
     { MODKEY,			XK_F2,		spawn,		SHCMD("chromium")  },
 	{ MODKEY,			XK_F3,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,			XK_F12,		spawn,		SHCMD("i3lock -f -o") },
+	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("xbacklight -inc 10") },
 	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 10") },
 	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,	spawn,		SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,	spawn,		SHCMD("playerctl next") },
-	{ 0, XF86XK_Sleep,		spawn,		SHCMD("[ \"$(printf\No\\nYes\ | dmenu -i -sf white -nf gray -p \"Hibernate computer?\")\" = Yes ] && systemctl suspend") },
-// 	TAGKEYS(                        XK_KP_1,                      0)
-// 	TAGKEYS(                        XK_KP_2,                      1)
-// 	TAGKEYS(                        XK_KP_3,                      2)
-// 	TAGKEYS(                        XK_KP_4,                      3)
-// 	TAGKEYS(                        XK_KP_5,                      4)
-// 	TAGKEYS(                        XK_KP_6,                      5)
-// 	TAGKEYS(                        XK_KP_7,                      6)
-// 	TAGKEYS(                        XK_KP_8,                      7)
-// 	TAGKEYS(                        XK_KP_9,                      8)
+// 	{ 0, XF86XK_Sleep,		spawn,		SHCMD("[ \"$(printf\No\\nYes\ | dmenu -i -sf white -nf gray -p \"Hibernate computer?\")\" = Yes ] && systemctl suspend") },
     TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -129,7 +124,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	TAGKEYS(                            XK_KP_End,                    0)
+	TAGKEYS(                        XK_KP_End,                    0)
 	TAGKEYS(                        XK_KP_Down,                   1)
 	TAGKEYS(                        XK_KP_Page_Down,              2)
 	TAGKEYS(                        XK_KP_Left,                   3)
@@ -150,7 +145,14 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+// 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+    { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
+	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
+	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
+    { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+// 	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("st -e nvim ~/.local/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
