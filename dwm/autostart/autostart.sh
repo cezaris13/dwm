@@ -6,12 +6,8 @@ xbindkeys &
 nitrogen --restore; sleep 1; picom -b &
 numlockx on &
 dunst &
-compton &
+# compton &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
-# volumeicon & #sita reiks pakeisti su volume controls in dwm
 redshift &
-#i3lock -f -o
-#xautolock -time 10 -locker 'i3lock -f -o'
-# ./dwm_status_bar.sh
-dwmblocks
+dwmblocks &

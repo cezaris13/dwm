@@ -116,9 +116,6 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,	spawn,		SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,	spawn,		SHCMD("playerctl next") },
-// 	{ 0, XF86XK_Sleep,		spawn,		SHCMD("[ \"$(printf\No\\nYes\ | dmenu -i -sf white -nf gray -p \"Hibernate computer?\")\" = Yes ] && systemctl suspend") },
-//notify-send --hint=string:x-dunst-stack-tag:test vol $(amixer get Master | awk '/Mono.+/ {print $6=="[off]"?$6:$4}') sound notifications on top on another
-// notify-send --hint=string:x-dunst-stack-tag:test "volume $(amixer get Master | awk '/Mono.+/ {print $6=="[off]"?$6:$4}')"
     TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

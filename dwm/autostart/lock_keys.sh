@@ -8,7 +8,7 @@ else
 fi
 if [[ $num == "on" ]]
 then 
-	echo -n "NUM"
+	echo -n "NUM "
 else 
-	echo -n "   "
-fi
+	echo -n "    "
+fi 

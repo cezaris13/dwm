@@ -5,4 +5,4 @@ case $BLOCK_BUTTON in
 - Middle click opens calcurse if installed" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
-echo "$(date +"%Y:%m:%d %H:%M:%S")"
+echo "$(date +"%Y:%m:%d %H:%M:%S") "
