@@ -7,6 +7,7 @@ nitrogen --restore; sleep 1; picom -b &
 numlockx on &
 dunst &
 # compton &
+fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
 redshift &

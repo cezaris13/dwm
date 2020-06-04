@@ -64,9 +64,9 @@ static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *emoji[]   = { "/home/pijus/.config/i3/emoji_script/./emoji_script.sh",NULL };
-static const char *corona[]   = { "/home/pijus/Desktop/Programming/corona/./corona.sh",NULL };
-static const char *exito[]   = { "/home/pijus/.config/dwm/autostart/./exit.sh",NULL };
+static const char *emoji[]   = { "$HOME/.config/i3/emoji_script/./emoji_script.sh",NULL };
+static const char *corona[]   = { "$HOME/Desktop/Programming/corona/./corona.sh",NULL };
+static const char *exito[]   = { "$HOME/.config/dwm/autostart/./exit.sh",NULL };
 #include "selfrestart.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -109,8 +109,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_F3,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,			XK_F12,		spawn,		SHCMD("i3lock -f -o") },
 	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer -q sset Master 3%+;/home/pijus/.config/dwm/autostart/./script.sh") },
-    { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer -q sset Master 3%-;/home/pijus/.config/dwm/autostart/./script.sh") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/autostart/./script.sh") },
+    { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/autostart/./script.sh") },
     { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("xbacklight -inc 10") },
 	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 10") },
 	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause") },
