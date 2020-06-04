@@ -1,5 +1,5 @@
 case $BLOCK_BUTTON in
-	1) st -e alsamixer ;;
+	1) xterm -e alsamixer ;;
 	2) amixer sset Master toggle ;;
 	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
 - Middle click to mute.

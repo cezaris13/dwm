@@ -1,6 +1,6 @@
 case $BLOCK_BUTTON in
 	1)pkill -RTMIN+4 dwmblocks;;
-	2)st -e nmtui;;
+	2)xterm -e nmtui;;
     3) notify-send "🌐 Internet module" "\- Click to connect
 📡: no wifi connection
 📶: wifi connection with quality

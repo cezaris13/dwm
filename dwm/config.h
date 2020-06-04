@@ -28,10 +28,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	/*{ "XTerm",    NULL,       NULL,       0,            1,           -1, 50,50,500,500,  5 },
-	{ "st",    NULL,       NULL,       0,            1,           -1, 50,50,500,500,  5 },*/
+	{ "XTerm",     NULL,       NULL,      0,            1,           -1,        1295,45,600,400,        1 },
 };
 
 /* layout(s) */
@@ -64,9 +61,6 @@ static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *emoji[]   = { "$HOME/.config/i3/emoji_script/./emoji_script.sh",NULL };
-static const char *corona[]   = { "$HOME/Desktop/Programming/corona/./corona.sh",NULL };
-static const char *exito[]   = { "$HOME/.config/dwm/autostart/./exit.sh",NULL };
 #include "selfrestart.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -103,8 +97,8 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY, 		XK_e, 	   spawn,	   {.v = emoji } },
-   	{ MODKEY, 		XK_s, 	   spawn,	   {.v = corona } },
+	{ MODKEY, 		XK_e, 	   spawn,		SHCMD("$HOME/.config/i3/emoji_script/./emoji_script.sh") },
+   	{ MODKEY, 		XK_s, 	   spawn,	   SHCMD("$HOME/Desktop/Programming/corona/./corona.sh") },
     { MODKEY,			XK_F2,		spawn,		SHCMD("chromium")  },
 	{ MODKEY,			XK_F3,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,			XK_F12,		spawn,		SHCMD("i3lock -f -o") },
@@ -136,7 +130,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_KP_Page_Up,                8)
 	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
    /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
-    { MODKEY|ShiftMask,             XK_e,      spawn,           {.v = exito} },
+    { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/autostart/./exit.sh") },
 };
 
 /* button definitions */
