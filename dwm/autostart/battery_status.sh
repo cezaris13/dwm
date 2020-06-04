@@ -8,7 +8,7 @@
 ❗: battery very low!" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
- charging="$(cat /sys/class/power_supply/AC0/online)"
+charging="$(cat /sys/class/power_supply/AC0/online)"
 if [[ $charging -eq 1 ]]
 then
 	echo -n "   charging "
@@ -17,4 +17,3 @@ else
 fi
 percentage="$(cat /sys/class/power_supply/BAT0/capacity)"
 echo -n $percentage"% "
-

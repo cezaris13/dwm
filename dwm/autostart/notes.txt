@@ -1,8 +1,5 @@
 todo:
 	1.dwmblocks (todo)
 	2.notes	
-	3.antradieni 16:30 matkes koncultacijos
-	4.kitom tas pats
-	5.treciadieni kazkaip su egzais 9:00-12:00 06-03 06-10 06-17
-	6.15:00-17:00 matke ketvirtadieni
-	7. wifi-status on dwmblocks(zinau kaip padaryti bet reikia pagrazinti)
+	3.treciadieni kazkaip su egzais 9:00-12:00 06-03 06-10 06-17
+	4. wifi-status on dwmblocks(zinau kaip padaryti bet reikia pagrazinti)
