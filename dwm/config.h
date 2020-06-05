@@ -1,5 +1,3 @@
-/* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
 static const unsigned int gappx     = 10;   
@@ -23,11 +21,7 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1: terminal  >_", "2: chromium ", "3: programming </>", "4", "5", "6", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
+	/* class      instance    title       tags mask     isfloating   monitor    posx posy h w           border */
 	{ "XTerm",     NULL,       NULL,      0,            1,           -1,        1295,45,600,400,        1 },
 };
 
@@ -56,7 +50,6 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/*static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };*/
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
 static const char scratchpadname[] = "scratchpad";
@@ -66,7 +59,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -77,7 +70,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-    { MODKEY,                       XK_z,  togglescratch,  {.v = scratchpadcmd } },
+    { MODKEY,                       XK_z,	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -97,19 +90,19 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY, 		XK_e, 	   spawn,		SHCMD("$HOME/.config/i3/emoji_script/./emoji_script.sh") },
-   	{ MODKEY, 		XK_s, 	   spawn,	   SHCMD("$HOME/Desktop/Programming/corona/./corona.sh") },
-    { MODKEY,			XK_F2,		spawn,		SHCMD("chromium")  },
-	{ MODKEY,			XK_F3,		spawn,		SHCMD("dolphin") },
-	{ MODKEY,			XK_F12,		spawn,		SHCMD("i3lock -f -o") },
-	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/autostart/./script.sh") },
-    { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/autostart/./script.sh") },
-    { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("xbacklight -inc 10") },
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 10") },
-	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause") },
-	{ 0, XF86XK_AudioPrev,	spawn,		SHCMD("playerctl previous") },
-	{ 0, XF86XK_AudioNext,	spawn,		SHCMD("playerctl next") },
+	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/i3/emoji_script/./emoji_script.sh") },
+   	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/Desktop/Programming/corona/./corona.sh") },
+    { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
+	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
+	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
+	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/autostart/./script.sh") },
+    { 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/autostart/./script.sh") },
+    { 0, XF86XK_MonBrightnessUp,			   spawn,		   SHCMD("xbacklight -inc 10") },
+	{ 0, XF86XK_MonBrightnessDown,			   spawn,		   SHCMD("xbacklight -dec 10") },
+	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
+	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
+	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
     TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -119,15 +112,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	TAGKEYS(                        XK_KP_End,                    0)
-	TAGKEYS(                        XK_KP_Down,                   1)
-	TAGKEYS(                        XK_KP_Page_Down,              2)
-	TAGKEYS(                        XK_KP_Left,                   3)
-	TAGKEYS(                        XK_KP_Begin,                  4)
-	TAGKEYS(                        XK_KP_Right,                  5)
-	TAGKEYS(                        XK_KP_Home,                   6)
-	TAGKEYS(                        XK_KP_Up,                     7)
-	TAGKEYS(                        XK_KP_Page_Up,                8)
+	TAGKEYS(                        XK_KP_End,                 0)
+	TAGKEYS(                        XK_KP_Down,                1)
+	TAGKEYS(                        XK_KP_Page_Down,           2)
+	TAGKEYS(                        XK_KP_Left,                3)
+	TAGKEYS(                        XK_KP_Begin,               4)
+	TAGKEYS(                        XK_KP_Right,               5)
+	TAGKEYS(                        XK_KP_Home,                6)
+	TAGKEYS(                        XK_KP_Up,                  7)
+	TAGKEYS(                        XK_KP_Page_Up,             8)
 	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
    /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
     { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/autostart/./exit.sh") },
@@ -140,14 +133,12 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-// 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
     { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
 	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
     { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
-// 	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("st -e nvim ~/.local/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
