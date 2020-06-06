@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
-static const unsigned int gappx     = 10;   
+static const unsigned int gappx     = 10;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -103,6 +103,7 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
+	{ 0,XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/autostart/./screenshot.sh") },
     TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -125,7 +126,6 @@ static Key keys[] = {
    /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
     { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/autostart/./exit.sh") },
 };
-
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
