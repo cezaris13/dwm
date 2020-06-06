@@ -1,5 +1,6 @@
 #!/bin/bash
  case $BLOCK_BUTTON in
+    1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
 	3) notify-send "🔋 Battery module" "🔋: discharging
 🛑: not charging
 ♻: stagnant charge
