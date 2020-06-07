@@ -1,5 +1,4 @@
 lang="$(xkblayout)"
-#echo -n  "⌨"
 if [[ $lang == "Lit" ]]
 then 
 	echo -n " LT "
