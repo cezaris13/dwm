@@ -1,6 +1,7 @@
 #!/bin/bash
  case $BLOCK_BUTTON in
     1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
+    2)notify-send " mouse battery $(upower -d | grep "percentage" |grep "ignored" | awk '{ print $1 $2}')";;
 	3) notify-send "Battery module
 -left click to show time to empty" ;;
 esac
