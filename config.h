@@ -52,7 +52,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
-static const char scratchpadname[] = {"stratchpad"};
+static const char scratchpadname[] = "stratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -69,7 +69,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-    { MODKEY,                       XK_z,	   togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_z,	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -85,7 +85,7 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/i3/emoji_script/./emoji_script.sh") },
+	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./emoji_script.sh") },
    	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/Desktop/Programming/corona/./corona.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
