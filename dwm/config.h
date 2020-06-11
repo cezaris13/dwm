@@ -52,9 +52,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "termite", NULL };
-static const char scratchpadname[] = "scratchpad";
+static const char scratchpadname[] = {"stratchpad"};
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-#include "selfrestart.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -82,10 +81,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
-	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
-	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
     { MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
@@ -122,7 +117,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_KP_Home,                6)
 	TAGKEYS(                        XK_KP_Up,                  7)
 	TAGKEYS(                        XK_KP_Page_Up,             8)
-	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
    /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
     { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/autostart/./exit.sh") },
 };
