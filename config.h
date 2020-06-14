@@ -86,7 +86,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./emoji_script.sh") },
-   	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/Desktop/Programming/corona/./corona.sh") },
+   	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./corona.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
