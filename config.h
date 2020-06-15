@@ -85,6 +85,7 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+    { MODKEY,						XK_q, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./luke.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./emoji_script.sh") },
    	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/autostart/./corona.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
