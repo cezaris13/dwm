@@ -19,6 +19,6 @@ try:
 except TimeoutException:
     print ("Loading took too much time!")
 html_source = driver.page_source
-f = open('/home/pijus/.config/dwm/autostart/result', 'w')
+f = open('/home/pijus/.config/dwm/scripts/result', 'w')
 f.write(html_source)
 driver.quit() 
