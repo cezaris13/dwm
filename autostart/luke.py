@@ -14,7 +14,7 @@ driver = webdriver.Chrome(PATH, options=options)
 driver.get("https://lbry.tv/@Luke:7")
 delay = 3 # seconds
 try:
-    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.ID, 'IdOfMyElement')))
+    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'button button--no-style navigation-link')))
     print ("Page is ready!")
 except TimeoutException:
     print ("Loading took too much time!")
