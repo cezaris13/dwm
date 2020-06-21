@@ -90,12 +90,12 @@ static Key keys[] = {
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
     { MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
     { MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
-   	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
+ 	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
 	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
+    { 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
     { 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/scripts/./volume_notification.sh") },
     { 0, XF86XK_MonBrightnessUp,			   spawn,		   SHCMD("xbacklight -inc 10;$HOME/.config/dwm/scripts/./brightness.sh") },
 	{ 0, XF86XK_MonBrightnessDown,			   spawn,		   SHCMD("xbacklight -dec 10;$HOME/.config/dwm/scripts/./brightness.sh") },
@@ -121,7 +121,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_KP_Home,                6)
 	TAGKEYS(                        XK_KP_Up,                  7)
 	TAGKEYS(                        XK_KP_Page_Up,             8)
-   /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
+ /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
     { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
 };
 /* button definitions */
@@ -136,7 +136,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
 	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-    { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
