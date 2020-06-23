@@ -1,6 +1,7 @@
+#!/bin/bash
 val=$1
 function module {
-	if [[ $val == "bat" ]]
+	if [[ $val == "battery" ]]
 	then 
 	   	case $BLOCK_BUTTON in
 			1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
@@ -11,7 +12,7 @@ function module {
 		charging="$(cat /sys/class/power_supply/AC0/online)"
 		[ $charging -eq 1 ] && echo -n "    charging " || echo -n " discharging "
 		echo -n $(cat /sys/class/power_supply/BAT0/capacity)"% "
-	elif [[ $val == "vol" ]]
+	elif [[ $val == "volume" ]]
 	then 
 		case $BLOCK_BUTTON in
 			1) xterm -e alsamixer;;
@@ -24,7 +25,7 @@ function module {
 			5) amixer sset Master 5%- >/dev/null 2>/dev/null ;;
 		esac
 		echo -n "VOL "$(amixer get Master | awk '/Mono.+/ {print $6=="[off]"?$6:$4}')" "
-	elif [[ $val == "net" ]]
+	elif [[ $val == "network" ]]
 	then 
 		case $BLOCK_BUTTON in
 			1) pkill -RTMIN+4 dwmblocks;;
