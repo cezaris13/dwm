@@ -12,3 +12,4 @@ xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # rever
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
 redshift &
 dwmblocks &
+pulseaudio-equalizer enable
