@@ -91,6 +91,7 @@ static Key keys[] = {
     { MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
     { MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
  	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
+    { MODKEY,						XK_n, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./nec.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },

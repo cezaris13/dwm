@@ -1,3 +1,4 @@
+nm-applet &
 klipper &
 /usr/lib/polkit-kde-authentication-agent-1 &
 wal -i "$(< "${HOME}/.cache/wal/wal")" &

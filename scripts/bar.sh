@@ -5,7 +5,7 @@ function module {
 	then 
 	   	case $BLOCK_BUTTON in
 			1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
-			2) notify-send " mouse battery $(upower -d | grep "percentage" | awk '/ignored/{ print $1 $2}')";;
+			2) notify-send " mouse battery $(upower -d | grep "percentage" | awk '/ignored/{ print $1 $2}' | grep -m 1 "percentage")";;
 			3) notify-send "Battery module
 -left click to show time to empty" ;;
 		esac
