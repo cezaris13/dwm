@@ -18,11 +18,12 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4", "5", "6", "7: messages ", "8: spotify ", "9" };
+static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    posx posy h w           border */
 	{ "XTerm",     NULL,       NULL,      0,            1,           -1,        1295,45,600,400,        1 },
+	{"Microsoft Teams", NULL, "Microsoft Teams Notification",0, 1,-1,1295,45,100,100,1},
 };
 
 /* layout(s) */
@@ -69,7 +70,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_z,	   togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_s,	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -85,13 +86,13 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-    { MODKEY,						XK_q, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./luke.sh") },
+    //{ MODKEY,						XK_q, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./luke.sh") },
     { MODKEY,						XK_w, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./manga.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
-    { MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
+    //{ MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
     { MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
- 	{ MODKEY,						XK_s, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
-    { MODKEY,						XK_n, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./nec.sh") },
+ 	{ MODKEY,						XK_c, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
+    //{ MODKEY,						XK_n, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./nec.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
