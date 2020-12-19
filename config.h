@@ -23,7 +23,7 @@ static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: program
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    posx posy h w           border */
 	{ "XTerm",     NULL,       NULL,      0,            1,           -1,        1295,45,600,400,        1 },
-	{"Microsoft Teams", NULL, "Microsoft Teams Notification",0, 1,-1,1295,45,100,100,1},
+	{"Microsoft Teams", NULL, "Microsoft Teams Notification",0, 1,-1,1500,45,100,100,1},
 };
 
 /* layout(s) */
