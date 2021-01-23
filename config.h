@@ -4,7 +4,7 @@ static const unsigned int gappx     = 10;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"};
+static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true","-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"};
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#07171B";
 static const char col_gray2[]       = "#444444";
@@ -89,7 +89,7 @@ static Key keys[] = {
     //{ MODKEY,						XK_q, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./luke.sh") },
     { MODKEY,						XK_w, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./manga.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
-//     { MODKEY,						XK_g, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./gitignore.sh") },
+	//{ MODKEY,						XK_g, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./gitignore.sh") },
     //{ MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
     { MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
  	{ MODKEY,						XK_c, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
@@ -97,6 +97,7 @@ static Key keys[] = {
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
+    { MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh") },
 	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
     { 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/scripts/./volume_notification.sh") },

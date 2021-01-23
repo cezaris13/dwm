@@ -1,0 +1,11 @@
+count="$(xrandr --query | grep '\bconnected\b'| wc -l)"
+#echo $count
+
+if [[ "$count" == "2" ]]
+then
+#add your arandr layout script here
+	xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+elif [[ "$count" == "1" ]] 
+then 
+    xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+fi
