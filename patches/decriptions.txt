@@ -1,0 +1,22 @@
+dwm-6.0-autostart.diff
+	This patch will make dwm run "~/.dwm/autostart_blocking.sh" and "~/.dwm/autostart.sh &" before entering the handler loop.
+dwm-actualfullscreen-20191112-cb3f58a.diff
+	Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+dwm-floatrules-6.2-1.diff
+    This patch adds 5 extra variables to the 'rules' array in config.def.h. These are:
+        floatx, floaty, floatw, floath (if the window has the rule isfloating, the window will spawn with the geometry specified by these vairables)
+        floatborderpx (border width when window is floating)
+dwm-fullgaps-6.2.diff
+    This patch adds gaps between client windows.
+dwm-hide_vacant_tags-6.2.diff
+    This patch prevents dwm from drawing tags with no clients (i.e. vacant) on the bar.
+dwm-pertag-20170513-ceac8c9.diff
+    This patch enables one layout per tag in contrast of one layout for all tags.
+dwm-savefloats-20181212-b69c870.diff
+    This patch saves size and position of every floating window before it is forced into tiled mode. If the window is made floating again, the old dimensions will be restored.
+dwm-scratchpad-6.2.diff
+    The scratchpad patch allows you to spawn or restore a floating terminal window. It is usually useful to have one to do some short typing.
+dwm-statuscmd-signal-6.2.diff
+    This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar.
+
+
