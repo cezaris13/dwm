@@ -98,6 +98,7 @@ static Key keys[] = {
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
     { MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh") },
+    { MODKEY,						XK_F7, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh change_orientation") },
 	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
     { 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/scripts/./volume_notification.sh") },
