@@ -5,9 +5,8 @@ klipper &
 wal -i "$(< "${HOME}/.cache/wal/wal")" &
 setxkbmap -layout us,lt -option 'grp:alt_shift_toggle' & #sita reiks pakoreguoti kad butu su dwm pkill
 xbindkeys &
-nitrogen --restore; sleep 1; picom -b &
-#feh --bg-scale /home/pijus/Pictures/wallpapers/alena-aenami-atlast2k2.jpg  --bg-scale /home/pijus/Pictures/wallpapers/alena-aenami-atlast2k2.jpg 
-# for multiple monitors
+# nitrogen --restore; sleep 1; 
+picom -b &
 numlockx on &
 dunst &
 # compton &
