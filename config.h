@@ -21,9 +21,9 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor    posx posy h w           border */
-	{ "XTerm",     NULL,       NULL,      0,            1,           -1,        1295,45,600,400,        1 },
-	{"Microsoft Teams", NULL, "Microsoft Teams Notification",0, 1,-1,1500,45,100,100,1},
+	/* class     		instance    title       					tags mask     isfloating   monitor    posx 		posy 	h 		w           border */
+	{ "XTerm",    		NULL,       NULL,      						0,            1,           -1,        1295,		45,		600,	400,        1 },
+	{"Microsoft Teams", NULL, 		"Microsoft Teams Notification",	0, 			  1,		   -1,		  1500,		45,		100,	100,		1 },
 };
 
 /* layout(s) */
@@ -86,19 +86,16 @@ static Key keys[] = {
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-    //{ MODKEY,						XK_q, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./luke.sh") },
     { MODKEY,						XK_w, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./manga.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
-	//{ MODKEY,						XK_g, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./gitignore.sh") },
-    //{ MODKEY,						XK_r, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./next_ch.sh") },
     { MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
  	{ MODKEY,						XK_c, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
-    //{ MODKEY,						XK_n, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./nec.sh") },
     { MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
     { MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh") },
     { MODKEY,						XK_F7, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh change_orientation") },
+    { MODKEY,						XK_F8, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./mic.sh change_orientation") },
 	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
     { 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/scripts/./volume_notification.sh") },
@@ -107,8 +104,9 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
-	{ 0,XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/./screenshot.sh") },
-    TAGKEYS(                        XK_1,                      0)
+	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/./screenshot.sh") },
+    { MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
+	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
@@ -126,8 +124,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_KP_Home,                6)
 	TAGKEYS(                        XK_KP_Up,                  7)
 	TAGKEYS(                        XK_KP_Page_Up,             8)
- /* { MODKEY|ShiftMask,             XK_e,      quit,           {0} },*/
-    { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
 };
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
