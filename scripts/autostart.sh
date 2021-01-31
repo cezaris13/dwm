@@ -1,4 +1,3 @@
-$HOME/.config/dwm/scripts/./monitors.sh &
 dwmblocks &
 nm-applet &
 klipper &
@@ -14,3 +13,4 @@ xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # rever
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
 redshift &
 pulseaudio-equalizer enable &
+$HOME/.config/dwm/scripts/./monitors.sh
