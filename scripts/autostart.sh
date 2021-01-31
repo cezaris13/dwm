@@ -12,5 +12,5 @@ fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
 redshift &
+$HOME/.config/dwm/scripts/./monitors.sh &
 pulseaudio-equalizer enable &
-$HOME/.config/dwm/scripts/./monitors.sh
