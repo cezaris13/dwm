@@ -23,8 +23,13 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
-	/* class      		 instance    title       						tags mask     isfloating   floatpos   				monitor */
-	{ "XTerm",			 NULL,		 NULL,								0,			  1,		   "83% 20% 31% 37%",		-1 },
+	/* class      		 instance    title       						tags mask   iscentered 		isfloating   floatpos   				monitor */
+	{ "XTerm",			 NULL,		 NULL,								0,			0,  			1,		   	 "83% 20% 31% 37%",		-1 },
+	{ "Codeblocks",		 NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
+	{ "discord",	 	 NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
+	{ NULL,	 			 NULL,		 "LibreOffice",						0,			1,  			0,		  	 NULL,					-1 },
+	{ NULL, 			 NULL,		 "Loading Microsoft Teams",			0,			1,  			0,		  	 NULL,					-1 },
+	//android studio
 };
 
 /* layout(s) */

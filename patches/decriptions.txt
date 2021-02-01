@@ -20,3 +20,5 @@ dwm-statuscmd-signal-6.2.diff
     This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar.
 dwm-floatpos-6.2.diff
     this patch makes floating rules  patch work using relative coordinates on multi monitor setup 
+dwm-center-6.2.diff
+    this patch starts program in the center of the current screen
