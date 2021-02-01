@@ -22,3 +22,5 @@ dwm-floatpos-6.2.diff
     this patch makes floating rules  patch work using relative coordinates on multi monitor setup 
 dwm-center-6.2.diff
     this patch starts program in the center of the current screen
+dwm-warp-6.2.diff
+    This patch warps the mouse cursor to the center of the currently focused window

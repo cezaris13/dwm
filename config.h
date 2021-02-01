@@ -152,6 +152,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-//todo :
-//		multi monitor for flaoting rules
-//		monitor script fails at start
