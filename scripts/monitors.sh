@@ -5,12 +5,12 @@ MonitorTwoHorizontal=$HOME/Pictures/wallpapers/solar_system_horizontal.png
 MonitorTwoVertical=$HOME/Pictures/wallpapers/solar_system_vertical.png
 if [ ! -f $FILE ]; then
    touch $FILE
-   printf "horizontal\nvertical left\n vertical right" | dmenu -p "choose monitor orientation" > $FILE
+   printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
 fi
 
 if [[ "$(echo $1)" == "change_orientation" ]]
 then 
-    printf "horizontal\nvertical left\n vertical right" | dmenu -p "choose monitor orientation" > $FILE
+    printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
 fi
 
 if [[ "$count" == "2" ]]
