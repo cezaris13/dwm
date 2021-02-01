@@ -4,6 +4,8 @@ static const unsigned int gappx     = 10;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static int floatposgrid_x           = 5;        /* float grid columns */
+static int floatposgrid_y           = 5;        /* float grid rows */
 static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true","-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"};
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#07171B";
@@ -21,9 +23,8 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
-	/* class     		instance    title       					tags mask     isfloating   monitor    posx 		posy 	h 		w           border */
-	{ "XTerm",    		NULL,       NULL,      						0,            1,           -1,        1295,		45,		600,	400,        1 },
-	{"Microsoft Teams", NULL, 		"Microsoft Teams Notification",	0, 			  1,		   -1,		  1500,		45,		100,	100,		1 },
+	/* class      		 instance    title       						tags mask     isfloating   floatpos   				monitor */
+	{ "XTerm",			 NULL,		 NULL,								0,			  1,		   "83% 20% 31% 37%",		-1 },
 };
 
 /* layout(s) */
