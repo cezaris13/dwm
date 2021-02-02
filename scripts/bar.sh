@@ -1,5 +1,9 @@
 #!/bin/bash
 val=$1
+if [[ ! -z $2 ]]
+then 
+	BLOCK_BUTTON=$2
+fi
 function module {
 	if [[ $val == "battery" ]]
 	then 
