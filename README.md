@@ -8,6 +8,8 @@
 |mod+b|toggle bar|
 |mod+j|move to next window|
 |mod+k|move to previous window|
+|mod+Shift+j|Swap the focused window with the next window|
+|mod+Shift+k|Swap the focused window with the previous window|
 |mod+i|increase amount of windows in the master area|
 |mod+u|decrease amount of windows in the master area|
 |mod+h|decrease master area size|
@@ -49,21 +51,27 @@
     * This patch will make dwm run "~/.dwm/autostart_blocking.sh" and "~/.dwm/autostart.sh &" before entering the handler loop.
 - actualfullscreen
 	* Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+- center
+    * this patch starts program in the center of the current screen
+- floatpos
+    * this patch makes "floating rules" patch work using relative coordinates on multi monitor setup 
 - fullgaps
     * This patch adds gaps between client windows.
 - hide_vacant_tags
     * This patch prevents dwm from drawing tags with no clients (i.e. vacant) on the bar.
 - pertag
     * This patch enables one layout per tag in contrast of one layout for all tags.
+- push
+    pushup and pushdown provide a way to move clients inside the clients list.
 - savefloats
     * This patch saves size and position of every floating window before it is forced into tiled mode. If the window is made floating again, the old dimensions will be restored.
 - scratchpad
     * The scratchpad patch allows you to spawn or restore a floating terminal window.
+- showselmon
+    Shows which monitor is currently selected. Unselected monitors now use inverted colors in status bar.
+- statusallmons
+    This patch draws and updates the statusbar on all monitors.
 - statuscmd
     * This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar.
-- floatpos
-    * this patch makes "floating rules" patch work using relative coordinates on multi monitor setup 
-- center
-    * this patch starts program in the center of the current screen
 - warp
     * This patch warps the mouse cursor to the center of the currently focused window
