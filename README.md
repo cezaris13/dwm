@@ -31,7 +31,7 @@
 |mod+Shift+.|move window to right monitor|
 |mod+Shift+f|toggle fullscreen|
 |mod+-|decrease gaps size|
-|mod+=|increase gap size|
+|mod+=|increase gaps size|
 |mod+Shift+=|remove gaps|
 |mod+w|manga script|
 |mod+e|emoji script|
