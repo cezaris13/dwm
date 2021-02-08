@@ -16,6 +16,7 @@
 |mod+l|increase master area size|
 |mod+Shift+Return|toggle a window between the master and stack area|
 |mod+Tab|toggle previous tag|
+|mod+`|toggle next monitor|
 |mod+Shift+q|kill window|
 |mod+s|toggle scratchpad|
 |mod+t|change to tiling layout mode|
