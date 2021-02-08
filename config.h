@@ -94,7 +94,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx  } },
 	{ MODKEY,						XK_w, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./manga.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
 	{ MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },

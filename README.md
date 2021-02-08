@@ -62,15 +62,15 @@
 - pertag
     * This patch enables one layout per tag in contrast of one layout for all tags.
 - push
-    pushup and pushdown provide a way to move clients inside the clients list.
+    * pushup and pushdown provide a way to move clients inside the clients list.
 - savefloats
     * This patch saves size and position of every floating window before it is forced into tiled mode. If the window is made floating again, the old dimensions will be restored.
 - scratchpad
     * The scratchpad patch allows you to spawn or restore a floating terminal window.
 - showselmon
-    Shows which monitor is currently selected. Unselected monitors now use inverted colors in status bar.
+    * Shows which monitor is currently selected. Unselected monitors now use inverted colors in status bar.
 - statusallmons
-    This patch draws and updates the statusbar on all monitors.
+    * This patch draws and updates the statusbar on all monitors.
 - statuscmd
     * This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar.
 - warp
