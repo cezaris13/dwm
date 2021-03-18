@@ -717,7 +717,7 @@ createmon(void)
 	m = ecalloc(1, sizeof(Monitor));
 	m->tagset[0] = m->tagset[1] = 1;
 	m->mfact = mfact;
-	m->nmaster = nmaster;
+	m->nmaster = nmaster;// change whis if i want 0 nmaster on 2 screen
 	m->showbar = showbar;
 	m->topbar = topbar;
 	m->gappx = gappx;
@@ -2073,7 +2073,7 @@ tile(Monitor *m)
 {
 	unsigned int i, n, h, mw, my, ty;
 	Client *c;
-
+    //m->nmaster=(m->mw<m->mh?0:m->nmaster);
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
 	if (n == 0)
 		return;
@@ -2346,6 +2346,7 @@ updategeom(void)
 					m->my = m->wy = unique[i].y_org;
 					m->mw = m->ww = unique[i].width;
 					m->mh = m->wh = unique[i].height;
+                    //m->nmaster=(m->mw<m->mh?0:m->nmaster);
 					updatebarpos(m);
 				}
 		} else { /* less monitors available nn < n */
