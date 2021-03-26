@@ -13,4 +13,6 @@ xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # rever
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
 redshift &
 sleep 1;picom -b &
+# mailspring &
+kdeconnect-cli --refresh &
 # # pulseaudio-equalizer enable &

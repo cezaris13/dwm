@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	{ "discord",	 	 NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
 	{ NULL,	 			 NULL,		 "LibreOffice",						0,			1,  			0,		  	 NULL,					-1 },
 	{ NULL, 			 NULL,		 "Loading Microsoft Teams",			0,			1,  			0,		  	 NULL,					-1 },
+	{ "Mailspring", 	 NULL,		 NULL,                              0,			1,  			0,		  	 NULL,					-1 },
 	//android studio
 };
 
@@ -116,6 +117,10 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
 	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/./screenshot.sh") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
+	{ MODKEY,                       XK_Down,   spawn,		   SHCMD("playerctl play-pause") },
+	{ MODKEY,                       XK_Left,   spawn,		   SHCMD("playerctl previous") },
+	{ MODKEY,                       XK_Right,  spawn,		   SHCMD("playerctl next") },
+
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
