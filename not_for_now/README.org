@@ -1,0 +1,15 @@
+* Unpatched patches
+- dwm-6.0-smfact.diff
+  - stackmfact enables you to vertically resize clients in the stack, like the regular mfact enables you to horizontally resize the master client(s).
+- dwm-alpha-6.1.diff
+  - Allow dwm to have translucent bars(transparent)
+- dwm-fullscreen-6.2.diff
+  - Applies the monocle layout with the focused client on top and hides the bar. When pressed again, shows the bar and restores the layout that was active before going fullscreen.
+- dwm-pango-6.2.diff
+  - This relatively simple patch adds pango support for the status bar. This not only adds TrueType font support but also opens a couple of interesting possibilities that are not possible under barebone xft.
+- dwm-r1522-viewontag.diff
+    Follow a window to the tag it is being moved to
+- dwm-swapfocus-6.2.diff
+  - This patch makes it possible to switch focus with one single shortcut (alt-s) instead of having to think if you should use alt-j or alt-k for reaching the last used window.
+- dwm-systray-6.2.diff
+  - A simple system tray implementation. Multi-monitor is also supported. The tray follows the selected monitor.

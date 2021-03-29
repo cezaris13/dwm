@@ -32,6 +32,8 @@
 | mod+.            | to to right monitor                               |
 | mod+Shift+,      | move window to left monitor                       |
 | mod+Shift+.      | move window to right monitor                      |
+| mod+Ctrl+,       | swap windows with left monitor                    |
+| mod+Ctrl+.       | swap windows with right monitor                   |
 | mod+Shift+f      | toggle fullscreen                                 |
 | mod+-            | decrease gaps size                                |
 | mod+=            | increase gaps size                                |
@@ -77,5 +79,7 @@
     + This patch draws and updates the statusbar on all monitors.
 - statuscmd
     + This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar.
+- tagswapmon
+  + This patch enables swapping all windows between monitors
 - warp
     + This patch warps the mouse cursor to the center of the currently focused window
