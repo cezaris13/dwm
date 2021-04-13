@@ -106,6 +106,10 @@ static Key keys[] = {
 	{ MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F4,	   spawn,	 	   SHCMD("$HOME/Desktop/Clean/Projects/my_sowon/Tsoding_sowon/sowon/./sowon") },
+	{ MODKEY,						XK_F6,	   spawn,	 	   SHCMD("mailspring") },
+	{ Mod1Mask, XK_F3,				     	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./sleep.sh") },//F3
+	{ Mod1Mask, XK_F4,				    	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./keyboard.sh") },//F4
+	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/./screenshot.sh") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
 	{ MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh") },
 	{ MODKEY,						XK_F7, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh change_orientation") },
@@ -118,9 +122,6 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
-	{ Mod1Mask, XK_F3,				     	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./sleep.sh") },//F3
-	{ Mod1Mask, XK_F4,				    	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./keyboard.sh") },//F4
-	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/./screenshot.sh") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
 	{ MODKEY,                       XK_Down,   spawn,		   SHCMD("playerctl play-pause") },
 	{ MODKEY,                       XK_Left,   spawn,		   SHCMD("playerctl previous") },

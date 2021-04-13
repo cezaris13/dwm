@@ -44,6 +44,10 @@
 | mod+c            | corona script                                     |
 | mod+F2           | launch chromium                                   |
 | mod+F3           | launch dolphin                                    |
+| mod+F4           | launch sowon                                      |
+| mod+F6           | launch maildrop                                   |
+| alt+F3           | suspend computer                                  |
+| alt+F4           | keyloard layout for bluetooth keyboard            |
 | mod+F12          | lock screen                                       |
 | mod+Shift+m      | monitor script                                    |
 | mod+F7           | change monitor orientation                        |
