@@ -16,4 +16,5 @@ redshift &
 sleep 1;picom -b &
 # mailspring &
 kdeconnect-cli --refresh &
+xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &

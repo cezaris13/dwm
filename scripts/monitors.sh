@@ -1,3 +1,4 @@
+#/usr/share/sddm/scripts/ there is xrandr turn on monitors on startup(xsetup)
 count="$(xrandr --query | grep '\bconnected\b'| wc -l)"
 FILE=$HOME/.cache/monitor_orientation.txt
 MonitorOne=$HOME/Pictures/wallpapers/alena-aenami-atlast2k2.jpg
@@ -17,8 +18,10 @@ if [[ "$count" == "2" ]]
 then
     if [[ "$(cat $FILE)" == "horizontal" ]]
     then 
-        xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-        feh --bg-scale $MonitorOne $MonitorTwoHorizontal 
+#         xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+#         feh --bg-scale $MonitorOne $MonitorTwoHorizontal 
+        xrandr --output eDP1 --off --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+        feh --bg-scale $MonitorTwoHorizontal 
     elif [[ "$(cat $FILE)" == "vertical left" ]]
     then 
         xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate left --output VIRTUAL1 --off
