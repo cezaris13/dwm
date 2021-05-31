@@ -50,6 +50,7 @@
 | alt+F4           | keyloard layout for bluetooth keyboard            |
 | mod+F12          | lock screen                                       |
 | mod+Shift+m      | monitor script                                    |
+| mod+F5           | change monitor wallpapers                         |
 | mod+F7           | change monitor orientation                        |
 | mod+F8           | change mic source                                 |
 | XF86XK_AudioMute | toggle mute                                       |

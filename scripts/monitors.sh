@@ -1,12 +1,22 @@
 #/usr/share/sddm/scripts/ there is xrandr turn on monitors on startup(xsetup)
 count="$(xrandr --query | grep '\bconnected\b'| wc -l)"
 FILE=$HOME/.cache/monitor_orientation.txt
-MonitorOne=$HOME/Pictures/wallpapers/alena-aenami-atlast2k2.jpg
-MonitorTwoHorizontal=$HOME/Pictures/wallpapers/solar_system_horizontal.png 
-MonitorTwoVertical=$HOME/Pictures/wallpapers/solar_system_vertical.png
+WallpaperOne=$HOME/.cache/Monitor1.txt
+WallpaperTwoHoriz=$HOME/.cache/Monitor2h.txt
+WallpaperTwoVert=$HOME/.cache/Monitor2v.txt
+
 if [ ! -f $FILE ]; then
    touch $FILE
    printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
+fi
+if [ ! -f $WallpaperOne ]; then
+   touch $WallpaperOne
+fi
+if [ ! -f $WallpaperTwoHoriz ]; then
+   touch $WallpaperTwoHoriz
+fi
+if [ ! -f $WallpaperTwoVert ]; then
+   touch $WallpaperTwoVert
 fi
 
 if [[ "$(echo $1)" == "change_orientation" ]]
@@ -14,6 +24,35 @@ then
     printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
 fi
 
+if [[ "$(echo $1)" == "change_wallpaper" ]]
+then
+    if [[ "$count" == "2" ]]
+    then
+        if [[ "$(printf No\\nYes | dmenu -i -sf white -nf gray -p "change wallpaper for monitor 1?")" = Yes ]]
+        then
+            sxiv -q -t -o $HOME/Pictures/wallpapers/* > $WallpaperOne
+        fi
+        if [[ "$(cat $FILE)" == "horizontal" ]]
+        then
+            if [[ "$(printf No\\nYes | dmenu -i -sf white -nf gray -p "change wallpaper for monitor 2 horizontal?")" = Yes ]]
+            then
+                sxiv -q -t -o $HOME/Pictures/wallpapers/* > $WallpaperTwoHoriz
+            fi
+        else
+            if [[ "$(printf No\\nYes | dmenu -i -sf white -nf gray -p "change wallpaper for monitor 2 vertical?")" = Yes ]]
+            then
+                sxiv -q -t -o $HOME/Pictures/wallpapers/* > $WallpaperTwovert
+            fi
+        fi
+    elif [[ "$count" == "1" ]]
+    then
+        sxiv -q -t -o $HOME/Pictures/wallpapers/* > $WallpaperOne
+    fi
+fi
+
+MonitorOne="$(cat $WallpaperOne)"
+MonitorTwoHorizontal="$(cat $WallpaperTwoHoriz)"
+MonitorTwoVertical="$(cat $WallpaperTwoVert)"
 if [[ "$count" == "2" ]]
 then
     if [[ "$(cat $FILE)" == "horizontal" ]]
