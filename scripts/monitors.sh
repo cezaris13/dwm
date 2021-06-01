@@ -1,9 +1,9 @@
 #/usr/share/sddm/scripts/ there is xrandr turn on monitors on startup(xsetup)
 count="$(xrandr --query | grep '\bconnected\b'| wc -l)"
-FILE=$HOME/.cache/monitor_orientation.txt
-WallpaperOne=$HOME/.cache/Monitor1.txt
-WallpaperTwoHoriz=$HOME/.cache/Monitor2h.txt
-WallpaperTwoVert=$HOME/.cache/Monitor2v.txt
+FILE=$HOME/.cache/MonitorScript/monitor_orientation.txt
+WallpaperOne=$HOME/.cache/MonitorScript/Monitor1.txt
+WallpaperTwoHoriz=$HOME/.cache/MonitorScript/Monitor2h.txt
+WallpaperTwoVert=$HOME/.cache/MonitorScript/Monitor2v.txt
 
 if [ ! -f $FILE ]; then
    touch $FILE
@@ -22,9 +22,7 @@ fi
 if [[ "$(echo $1)" == "change_orientation" ]]
 then 
     printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
-fi
-
-if [[ "$(echo $1)" == "change_wallpaper" ]]
+elif [[ "$(echo $1)" == "change_wallpaper" ]]
 then
     if [[ "$count" == "2" ]]
     then

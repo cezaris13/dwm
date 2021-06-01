@@ -1,9 +1,9 @@
+wal -i "$(< "${HOME}/.cache/wal/wal")" &
 $HOME/.config/dwm/scripts/./monitors.sh &
 dwmblocks &
 nm-applet &
 klipper &
 /usr/lib/polkit-kde-authentication-agent-1 &
-wal -i "$(< "${HOME}/.cache/wal/wal")" &
 setxkbmap -layout us,lt -option 'grp:alt_shift_toggle' & #sita reiks pakoreguoti kad butu su dwm pkill
 $HOME/.config/dwm/scripts/./keyboard.sh &
 xbindkeys &
