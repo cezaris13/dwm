@@ -19,6 +19,8 @@
   + This patch saves size and position of every floating window before it is forced into tiled mode. If the window is made floating again, the old dimensions will be restored.
 - dwm-scratchpad-6.2.diff
   + The scratchpad patch allows you to spawn or restore a floating terminal window. It is usually useful to have one to do some short typing.
+- dwm-single-tagset-6.2.diff
+  + This patch lets you have same tagset on multiple monitors
 - dwm-showselmon-6.2.diff
   + Shows which monitor is currently selected. Unselected monitors now use inverted colors in status bar.
 - dwm-statusallmons-6.2.diff
