@@ -24,7 +24,7 @@ then
     printf "horizontal\nvertical left\nvertical right" | dmenu -p "choose monitor orientation" > $FILE
 elif [[ "$(echo $1)" == "change_wallpaper" ]]
 then
-    if [[ "$count" == "2" ]]
+    if [[ "$count" == "2" || "$count" == "3" ]]
     then
         if [[ "$(printf No\\nYes | dmenu -i -sf white -nf gray -p "change wallpaper for monitor 1?")" = Yes ]]
         then
@@ -51,26 +51,30 @@ fi
 MonitorOne="$(cat $WallpaperOne)"
 MonitorTwoHorizontal="$(cat $WallpaperTwoHoriz)"
 MonitorTwoVertical="$(cat $WallpaperTwoVert)"
-if [[ "$count" == "2" ]]
+if [[ "$count" == "3" ]]
+then
+    xrandr --output eDP1 --off --output DP1 --mode 1920x1200 --pos 1920x0 --rotate normal --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+    feh --bg-scale $MonitorOne $MonitorTwoHorizontal
+elif [[ "$count" == "2" ]]
 then
     if [[ "$(cat $FILE)" == "horizontal" ]]
-    then 
-        xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-        feh --bg-scale $MonitorOne $MonitorTwoHorizontal
-        # xrandr --output eDP1 --off --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-        # feh --bg-scale $MonitorTwoHorizontal
+    then
+        # xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+        # feh --bg-scale $MonitorOne $MonitorTwoHorizontal
+        xrandr --output eDP1 --off --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+        feh --bg-scale $MonitorTwoHorizontal
         # xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
         # feh --bg-scale $MonitorOne $MonitorTwoHorizontal
     elif [[ "$(cat $FILE)" == "vertical left" ]]
-    then 
+    then
         xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate left --output VIRTUAL1 --off
-        feh --bg-scale $MonitorOne $MonitorTwoVertical 
+        feh --bg-scale $MonitorOne $MonitorTwoVertical
     elif [[ "$(cat $FILE)" == "vertical right" ]]
     then
         xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate right --output VIRTUAL1 --off
         feh --bg-scale $MonitorOne $MonitorTwoVertical
     fi
-elif [[ "$count" == "1" ]] 
+elif [[ "$count" == "1" ]]
 then
     xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
     feh --bg-scale $MonitorOne
