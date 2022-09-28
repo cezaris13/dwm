@@ -7,11 +7,15 @@ fi
 function module {
 	if [[ $val == "battery" ]]
 	then 
+		bluetoothHeadphones=$(pacmd list-sinks | grep "bluez\.alias.*$" | sed "s/\s//g; s/bluez\.alias=\"//g;s/\"//g")
+		bluetoothHeadphonesPercentage=$(pacmd list-sinks | grep "bluetooth.battery.*$" | sed "s/\s//g; s/bluetooth\.battery=\"//g;s/\"//g")
 	   	case $BLOCK_BUTTON in
 			1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
-			2) notify-send " mouse battery $(upower -d | grep "percentage" | awk '/ignored/{ print $1 $2}' | grep -m 1 "percentage")";;
+			2) notify-send "mouse battery $(upower -d | grep "percentage" | awk '/ignored/{ print $1 $2}' | grep -m 1 "percentage")
+				$([[ ! -z "$bluetoothHeadphones" ]] && echo "$bluetoothHeadphones battery: $bluetoothHeadphonesStatus")";;
 			3) notify-send "Battery module
 -left click to show time to empty" ;;
+# add keychron battery status
 		esac
 		charging="$(cat /sys/class/power_supply/AC0/online)"
 		[ $charging -eq 1 ] && echo -n "    charging " || echo -n " discharging "
@@ -20,15 +24,16 @@ function module {
 	then 
 		case $BLOCK_BUTTON in
 			1) xterm -e alsamixer;;
-			2) pactl set-sink-mute 0 toggle;;
-			3) notify-send "Volume module" "\- Shows volume, [off] if muted.
--Left click to open alsamixer
-- Middle click to mute.
-- Scroll to change." ;;
-			4) amixer sset Master 5%+ >/dev/null 2>/dev/null ;;
-			5) amixer sset Master 5%- >/dev/null 2>/dev/null ;;
+			2) $(sh ./volumeControl.sh toggleSound);;
+#			3) notify-send "Volume module" "\- Shows volume, [off] if muted.
+#-Left click to open alsamixer
+#- Middle click to mute.
+#- Scroll to change." ;;
+			3) SonyHeadphonesClient ;;
+			4) $(sh ./volumeControl.sh +5%);;
+			5) $(sh ./volumeControl.sh -5%);;
 		esac
-		echo -n "VOL "$(amixer get Master | awk '/Mono.+/ {print $6=="[off]"?$6:$4}')" "
+		echo -n "VOL "$(sh ./volumePercentage.sh)" "
 	elif [[ $val == "network" ]]
 	then 
 		case $BLOCK_BUTTON in

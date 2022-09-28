@@ -1,4 +1,5 @@
 /* appearance */
+#define XF86AudioPlay           0x1008ff14
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
 static const unsigned int gappx     = 10;
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -24,13 +25,14 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6: mail ", "7: messages ", "8: spotify ", "9" };
 
 static const Rule rules[] = {
-	/* class      		 instance    title       						tags mask   iscentered 		isfloating   floatpos   				monitor */
-	{ "XTerm",			 NULL,		 NULL,								0,			0,  			1,		   	 "83% 20% 31% 37%",		-1 },
-	{ "Codeblocks",		 NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
-	{ "discord",	 	 NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
-	{ NULL,	 			 NULL,		 "LibreOffice",						0,			1,  			0,		  	 NULL,					-1 },
-	{ NULL, 			 NULL,		 "Loading Microsoft Teams",			0,			1,  			0,		  	 NULL,					-1 },
-	{ "Mailspring", 	 NULL,		 NULL,                              0,			1,  			0,		  	 NULL,					-1 },
+	/* class      		              instance    title       						tags mask   iscentered 		isfloating   floatpos   				monitor */
+	{ "XTerm",			              NULL,		 NULL,								0,			0,  			1,		   	 "83% 20% 31% 37%",		-1 },
+	{ "SonyHeadphonesClient",	      NULL,		 "Sony Headphones App v1.3.1",		0,			0,  			1,		   	 "83% 20% 31% 37%",		-1 },
+	{ "Codeblocks",					  NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
+	{ "discord",	 	              NULL,		 NULL,								0,			1,  			0,		  	 NULL,					-1 },
+	{ NULL,	 			              NULL,		 "LibreOffice",						0,			1,  			0,		  	 NULL,					-1 },
+	{ NULL, 			              NULL,		 "Loading Microsoft Teams",			0,			1,  			0,		  	 NULL,					-1 },
+	{ "Mailspring", 	              NULL,		 NULL,                              0,			1,  			0,		  	 NULL,					-1 },
 	//android studio
 };
 
@@ -99,10 +101,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx  } },
+	// { MODKEY|ShiftMask,         	XK_r,      restore,        {0} }, todo this function!!!
 	{ MODKEY,						XK_w, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./manga.sh") },
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./emoji_script.sh") },
 	{ MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./memes.sh") },
  	{ MODKEY,						XK_c, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./corona.sh") },
+	{ MODKEY|ShiftMask, 			XK_b, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./bluetooth.sh") },
 	{ MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F4,	   spawn,	 	   SHCMD("$HOME/Desktop/Projects/Tsoding_sowon/sowon/./sowon") },
@@ -115,12 +119,13 @@ static Key keys[] = {
 	{ MODKEY,						XK_F5, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh change_wallpaper") },
 	{ MODKEY,						XK_F7, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./monitors.sh change_orientation") },
 	{ MODKEY,						XK_F8, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./mic.sh") },
-	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%+;$HOME/.config/dwm/scripts/./volume_notification.sh") },
-	{ 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("amixer -q sset Master 3%-;$HOME/.config/dwm/scripts/./volume_notification.sh") },
+	{ 0, XF86XK_AudioMute,					   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./volumeControl.sh toggleSound; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,			   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./volumeControl.sh +3%;$HOME/.config/dwm/scripts/./volume_notification.sh") },
+	{ 0, XF86XK_AudioLowerVolume,			   spawn,		   SHCMD("$HOME/.config/dwm/scripts/./volumeControl.sh -3%;$HOME/.config/dwm/scripts/./volume_notification.sh") },
 	{ 0, XF86XK_MonBrightnessUp,			   spawn,		   SHCMD("xbacklight -inc 10;$HOME/.config/dwm/scripts/./brightness.sh") },
 	{ 0, XF86XK_MonBrightnessDown,			   spawn,		   SHCMD("xbacklight -dec 10;$HOME/.config/dwm/scripts/./brightness.sh") },
 	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
+	{ 0, XF86AudioPlay,						   spawn,		   SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
