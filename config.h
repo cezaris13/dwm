@@ -1,5 +1,4 @@
 /* appearance */
-#define XF86AudioPlay           0x1008ff14
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
 static const unsigned int gappx     = 10;
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -125,7 +124,7 @@ static Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp,			   spawn,		   SHCMD("xbacklight -inc 10;$HOME/.config/dwm/scripts/./brightness.sh") },
 	{ 0, XF86XK_MonBrightnessDown,			   spawn,		   SHCMD("xbacklight -dec 10;$HOME/.config/dwm/scripts/./brightness.sh") },
 	{ 0, XF86XK_AudioPlay,					   spawn,		   SHCMD("playerctl play-pause") },
-	{ 0, XF86AudioPlay,						   spawn,		   SHCMD("playerctl play-pause") },
+	{ 0, XF86XK_AudioPause,						   spawn,		   SHCMD("playerctl play-pause") },
 	{ 0, XF86XK_AudioPrev,					   spawn,		   SHCMD("playerctl previous") },
 	{ 0, XF86XK_AudioNext,					   spawn,		   SHCMD("playerctl next") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("$HOME/.config/dwm/scripts/./exit.sh") },
