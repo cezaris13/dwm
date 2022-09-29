@@ -6,7 +6,7 @@ then
     defaultSink=$(pactl info | grep "Default Sink:.*" | sed "s/Default Sink: //g")
     pactl set-sink-mute $defaultSink toggle;
 else
-    bluetoothHeadphones=$(sh $HOME/.config/dwm/scripts/./findBluetoothHeadphones.sh )
+    bluetoothHeadphones=$(sh $HOME/.config/dwm/scripts/dwm_specific/bluetooth/./find_bluetooth_headphones.sh )
     if [[ ! -z $bluetoothHeadphones ]]
     then
         bluetoothSinkName=$(pacmd list-sinks | grep --color=never name:.*$ | grep --color=never "^.*bluez.*$" | sed "s/.*<//g;s/>//g");

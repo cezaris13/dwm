@@ -13,8 +13,7 @@ function module {
 			1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
 			2) notify-send "mouse battery $(upower -d | grep "percentage" | awk '/ignored/{ print $1 $2}' | grep -m 1 "percentage")
 				$([[ ! -z "$bluetoothHeadphones" ]] && echo "$bluetoothHeadphones battery: $bluetoothHeadphonesStatus")";;
-			3) notify-send "Battery module
--left click to show time to empty" ;;
+			3) notify-send "Battery module" "\-left click to show time to empty";;
 # add keychron battery status
 		esac
 		charging="$(cat /sys/class/power_supply/AC0/online)"
@@ -24,16 +23,16 @@ function module {
 	then 
 		case $BLOCK_BUTTON in
 			1) xterm -e alsamixer;;
-			2) $(sh ./volumeControl.sh toggleSound);;
+			2) $(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_control.sh toggleSound);;
 #			3) notify-send "Volume module" "\- Shows volume, [off] if muted.
 #-Left click to open alsamixer
 #- Middle click to mute.
 #- Scroll to change." ;;
 			3) SonyHeadphonesClient ;;
-			4) $(sh ./volumeControl.sh +5%);;
-			5) $(sh ./volumeControl.sh -5%);;
+			4) $(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_control.sh +5%);;
+			5) $(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_control.sh -5%);;
 		esac
-		echo -n "VOL "$(sh ./volumePercentage.sh)" "
+		echo -n "VOL "$(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_percentage.sh)" "
 	elif [[ $val == "network" ]]
 	then 
 		case $BLOCK_BUTTON in

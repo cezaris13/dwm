@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $HOME/.config/dwm/scripts/
+cd $HOME/.config/dwm/scripts/misc/
 curl "$(echo -e "https://toonily.com/webtoons/?m_orderby=latest\nhttps://mangakakalot.com/" | dmenu -p "choose the site")" > index.html #toonily does not work for now, maybe reboot will do the thing
 cat index.html | sed "s/>/>\n/g" | grep "</a>\|<a href.*>" | grep -v  "^ *</a>$" | grep -A1 "href" | grep -vB1 "href" | grep -v "\-\-" | awk 'NR%2{printf "%s ",$0;next;}1'  | sed "s/<a \+href=.//g;s/<\/a>//g" | grep " *https\?://" > links_and_titles.txt
 result="$(cat links_and_titles.txt | grep -o ">.*$" | grep -B1 "Chapter" | sed "s/> *//g" | grep -vA1 "Chapter" |awk 'length >2'|  awk 'NR%2{printf "%s ",$0;next;}1' |  dmenu -i -l 20 -p "new manga")"

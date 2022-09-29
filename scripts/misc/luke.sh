@@ -1,4 +1,5 @@
-if [ "$(printf No\\nYes | dmenu -i -sf white -nf gray -p "Check if there's a new video of Luke Smith?")" = Yes ] 
+cd $HOME/.config/dwm/scripts/misc/;
+if [ "$(cat ../ templates/exit_data.txt| dmenu -i -sf white -nf gray -p "Check if there's a new video of Luke Smith?")" = Yes ] 
 then
     cd $HOME/.config/dwm/scripts/;
     notify-send "information is beeing processed..."; python luke.py

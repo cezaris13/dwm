@@ -1,4 +1,4 @@
-cd $HOME/.config/dwm/scripts;
+cd $HOME/.config/dwm/scripts/misc/;
 wget https://rezultatai.nec.lt/
 if [[ ! -f "index.html" ]]
 then 

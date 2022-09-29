@@ -40,6 +40,7 @@
 #include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
+#include <unistd.h>
 
 #include "drw.h"
 #include "util.h"
@@ -1765,7 +1766,7 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd ~/.config/dwm/scripts; ./autostart.sh &");
+	system("cd ~/.config/dwm/scripts/dwm_specific; ./autostart.sh &");
 }
 
 void
@@ -2157,6 +2158,7 @@ tagswapmon(const Arg *arg)
 
 	m = dirtomon(arg->i);
 
+	sleep(1);
 	for (c = selmon->cl->clients; c; c = next) {
 		next = c->next;
 		if (!ISVISIBLE(c,selmon))
@@ -2167,7 +2169,10 @@ tagswapmon(const Arg *arg)
 		c->next = sc;
 		sc = c;
 	}
+	focus(NULL);
+	arrange(NULL);
 
+	sleep(1);
 	for (c = m->cl->clients; c; c = next) {
 		next = c->next;
 		if (!ISVISIBLE(c,selmon))
@@ -2178,7 +2183,10 @@ tagswapmon(const Arg *arg)
 		c->next = mc;
 		mc = c;
 	}
+	focus(NULL);
+	arrange(NULL);
 
+	sleep(1);
 	for (c = sc; c; c = next) {
 		next = c->next;
 		c->mon = m;
@@ -2190,6 +2198,10 @@ tagswapmon(const Arg *arg)
 			XRaiseWindow(dpy, c->win);
 		}
 	}
+	focus(NULL);
+	arrange(NULL);
+
+	sleep(1);
 
 	for (c = mc; c; c = next) {
 		next = c->next;

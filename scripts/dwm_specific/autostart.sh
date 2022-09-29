@@ -1,11 +1,11 @@
 wal -i "$(< "${HOME}/.cache/wal/wal")" &
-$HOME/.config/dwm/scripts/./monitors.sh &
+$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh &
 dwmblocks &
 nm-applet &
 klipper &
 /usr/lib/polkit-kde-authentication-agent-1 &
 setxkbmap -layout us,lt -option 'grp:alt_shift_toggle' & #sita reiks pakoreguoti kad butu su dwm pkill
-$HOME/.config/dwm/scripts/./keyboard.sh &
+$HOME/.config/dwm/scripts/dwm_specific/./keyboard.sh &
 xbindkeys &
 numlockx on &
 dunst &
