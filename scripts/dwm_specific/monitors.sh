@@ -1,9 +1,10 @@
+#!/bin/sh
 #/usr/share/sddm/scripts/ there is xrandr turn on monitors on startup(xsetup)
 count="$(xrandr --query | grep '\bconnected\b'| wc -l)"
-FILE=$HOME/.cache/monitorScript/monitor_orientation.txt
-wallpaper_one=$HOME/.cache/monitorScript/monitor1.txt
-wallpaper_two_horiz=$HOME/.cache/monitorScript/monitor2h.txt
-wallpaper_two_vert=$HOME/.cache/monitorScript/monitor2v.txt
+FILE=$HOME/.cache/MonitorScript/monitor_orientation.txt
+wallpaper_one=$HOME/.cache/MonitorScript/monitor1.txt
+wallpaper_two_horiz=$HOME/.cache/MonitorScript/monitor2h.txt
+wallpaper_two_vert=$HOME/.cache/MonitorScript/monitor2v.txt
 
 if [ ! -f $FILE ]; then
    touch $FILE

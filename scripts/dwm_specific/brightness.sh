@@ -11,6 +11,7 @@ function set_screen_brightness() {
     else
         xbacklight -dec $value
     fi
+
     if [ -z $quiet ]
     then
         notify-send --hint=string:x-dunst-stack-tag:brightness "brightness: $(printf "%.0f\n" $(xbacklight -get)) %"

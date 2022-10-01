@@ -1,13 +1,29 @@
-command=$($HOME/.config/dwm/scripts/shared/./dmenu_replacement.sh 2 bluetooth_data.txt 10 "Sony_headphones");
+#!/bin/bash
 
-earbuds="30:53:C1:3F:9D:F9"
+function connect_headphones() {
+	command=$($HOME/.config/dwm/scripts/shared/./dmenu_replacement.sh 2 bluetooth_data.txt 10 "Sony_headphones");
 
-# bluetoothctl pair $earbuds
+	earbuds="30:53:C1:3F:9D:F9"
 
-if [[ "$(echo $command)" == "connect" ]]
-then
-	bluetoothctl connect $earbuds;
-elif [[ "$(echo $command)" == "disconnect" ]]
-then
-	bluetoothctl disconnect $earbuds;
-fi
+	# bluetoothctl pair $earbuds
+
+	if [[ "$(echo $command)" == "connect" ]]
+	then
+		bluetoothctl connect $earbuds;
+	elif [[ "$(echo $command)" == "disconnect" ]]
+	then
+		bluetoothctl disconnect $earbuds;
+	fi
+
+}
+
+function get_headphone_name(){
+	pacmd list-sinks | grep "bluez\.alias.*$" | sed "s/\s//g; s/bluez\.alias=\"//g;s/\"//g"
+}
+
+case "$1" in
+    "") ;;
+    connect_headphones) "$@"; exit;;
+    get_headphone_name) "$@"; exit;;
+    *) echo "unknown command"; exit 2;;
+esac
