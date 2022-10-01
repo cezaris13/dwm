@@ -105,7 +105,7 @@ static Key keys[] = {
 	{ MODKEY,						XK_e, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/misc/./emoji_script.sh") },
 	{ MODKEY,		     			XK_y, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/misc/./memes.sh") },
  	{ MODKEY,						XK_c, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/misc/./corona.sh") },
-	{ MODKEY|ShiftMask, 			XK_b, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/bluetooth/./bluetooth.sh") },
+	{ MODKEY|ShiftMask, 			XK_b, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/bluetooth/./bluetooth.sh connect_headphones") },
 	{ MODKEY,						XK_F2,	   spawn,		   SHCMD("chromium")  },
 	{ MODKEY,						XK_F3,	   spawn,	 	   SHCMD("dolphin") },
 	{ MODKEY,						XK_F4,	   spawn,	 	   SHCMD("$HOME/Desktop/Projects/Tsoding_sowon/sowon/./sowon") },

@@ -19,14 +19,14 @@ function set_volume(){
             if [[ "$bluetooth_volume" -le "100" || "$volume_sign" == "-" ]]
             then
                 pactl set-sink-volume $bluetooth_sink_name $volume_setting;
-                send_volume_notification $2
+                send_volume_notification $quiet
             fi
         else
             # this is needed to convert +5% to 5%+, since Amixer uses different format
             volume_setting+=$(echo $volume_setting | head -c 1)
             converted_volume_setting="${volume_setting:1}"
             amixer -q sset Master $converted_volume_setting;
-            send_volume_notification $2
+            send_volume_notification $quiet
         fi
     fi
 }
@@ -35,8 +35,8 @@ function send_volume_notification(){
     quiet=$1
     percentage=$(get_volume_percentage)
     percentage=$(fix_volume_percentage $percentage)
-       kill -44 $(pidof dwmblocks)
-    if [[ -z $quiet ]]
+    kill -44 $(pidof dwmblocks)
+    if [[ $quiet != "-q" ]]
     then
         notify-send --hint=string:x-dunst-stack-tag:volume "volume $percentage"
     fi
@@ -67,6 +67,6 @@ case "$1" in
     "") ;;
     set_volume) "$@" $2 $3; exit;;
     get_volume_percentage) "$@"; exit;;
-    fix_volume_percentage) "$@"; $2 exit;;
+    fix_volume_percentage) "$@" $2; exit;;
     *) echo "unknown command"; exit 2;;
 esac
