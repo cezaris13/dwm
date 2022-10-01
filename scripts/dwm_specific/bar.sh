@@ -32,7 +32,13 @@ function module {
 			4) $(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_control.sh +5%);;
 			5) $(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_control.sh -5%);;
 		esac
-		echo -n "VOL "$(sh $HOME/.config/dwm/scripts/dwm_specific/volume/./volume_percentage.sh)" "
+		percentage=$($HOME/.config/dwm/scripts/dwm_specific/volume/./volume_percentage.sh)
+		parsed_percentage=$(echo $percentage | grep -o "[0-9]*")
+		if [[ "$parsed_percentage" -gt "100" ]]
+		then
+			percentage="[100%]"
+		fi
+		echo -n "VOL $percentage "
 	elif [[ $val == "network" ]]
 	then 
 		case $BLOCK_BUTTON in
