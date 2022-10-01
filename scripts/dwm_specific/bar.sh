@@ -6,7 +6,7 @@ then
 fi
 function module {
 	case $val in
-		"battery") battery_utils;;
+		"battery") (cd $HOME/.config/dwm/scripts/dwm_specific/bluetooth; battery_utils);;
 		"volume") (cd $HOME/.config/dwm/scripts/dwm_specific/volume; volume_utils);;
 		"network") network_utils;;
 		"date") calendar_utils;;
@@ -33,7 +33,7 @@ function volume_utils() {
 }
 
 function battery_utils() {
-	bluetooth_headphones=$(pacmd list-sinks | grep "bluez\.alias.*$" | sed "s/\s//g; s/bluez\.alias=\"//g;s/\"//g")
+	bluetooth_headphones=$(sh ./bluetooth.sh get_headphone_name)
 	bluetooth_headphones_percentage=$(pacmd list-sinks | grep "bluetooth.battery.*$" | sed "s/\s//g; s/bluetooth\.battery=\"//g;s/\"//g")
 	case $BLOCK_BUTTON in
 		1) notify-send "$(echo $(upower -d | grep 'time to empty' | sort -u ))";;
