@@ -1,2 +1,2 @@
-dmenu -p "kokio ilgio norite skaiciaus"  > ans.txt
+dmenu -p "kokio ilgio norite skaiciaus" >ans.txt
 # ./main $sk

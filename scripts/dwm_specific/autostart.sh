@@ -1,4 +1,4 @@
-wal -i "$(< "${HOME}/.cache/wal/wal")" &
+wal -i "$(<"${HOME}/.cache/wal/wal")" &
 $HOME/.config/dwm/scripts/dwm_specific/./monitors.sh &
 dwmblocks &
 nm-applet &
@@ -11,7 +11,7 @@ numlockx on &
 dunst &
 fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
-xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 #tap clicking
+xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
 sleep 1;picom -b &
 # mailspring &

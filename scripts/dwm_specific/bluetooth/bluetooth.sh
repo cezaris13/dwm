@@ -1,23 +1,21 @@
 #!/bin/bash
 
 function connect_headphones() {
-	command=$($HOME/.config/dwm/scripts/shared/./dmenu_replacement.sh 2 bluetooth_data.txt 10 "Sony_headphones");
+	command=$($HOME/.config/dwm/scripts/shared/./dmenu_replacement.sh 2 bluetooth_data.txt 10 "Sony_headphones")
 
 	earbuds="30:53:C1:3F:9D:F9"
 
-	# bluetoothctl pair $earbuds
+	#bluetoothctl pair $earbuds
 
-	if [[ "$(echo $command)" == "connect" ]]
-	then
-		bluetoothctl connect $earbuds;
-	elif [[ "$(echo $command)" == "disconnect" ]]
-	then
-		bluetoothctl disconnect $earbuds;
+	if [[ "$(echo $command)" == "connect" ]]; then
+		bluetoothctl connect $earbuds
+	elif [[ "$(echo $command)" == "disconnect" ]]; then
+		bluetoothctl disconnect $earbuds
 	fi
 
 }
 
-function get_headphone_name(){
+function get_headphone_name() {
 	pacmd list-sinks | grep "bluez\.alias.*$" | sed "s/\s//g; s/bluez\.alias=\"//g;s/\"//g"
 }
 
