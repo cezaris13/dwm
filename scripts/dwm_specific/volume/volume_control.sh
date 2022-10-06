@@ -51,7 +51,7 @@ function get_volume_percentage() {
     bluetooth_headphones=$(sh $HOME/.config/dwm/scripts/dwm_specific/bluetooth//./bluetooth.sh get_headphone_name)
     if [[ ! -z $bluetooth_headphones ]]; then
         bluetooth_sink_mame=$(pacmd list-sinks | grep --color=never name:.*$ | grep --color=never "^.*bluez.*$" | sed "s/.*<//g;s/>//g")
-        pactl get-sink-volume $bluetooth_sink_mame | grep --color=never -o "front-right:.*" | grep -o "/.*/" | sed "s/\///g; s/ //g" | sed -e "s/\(.*\)/[\1]/"
+        pactl get-sink-volume $bluetooth_sink_mame | grep -o --color=never "/\s*[0-9]*%\s*/" | sed "s/\//\n/g;s/ //g"| sort | uniq | awk 'length>2' | sed -e "s/\(.*\)/[\1]/"
     else
         amixer get Master | awk '/Mono.+/ {print $6=="[off]"?$6:$4}'
     fi
