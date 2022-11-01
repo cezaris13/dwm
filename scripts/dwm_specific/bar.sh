@@ -56,7 +56,7 @@ down: no wifi connection
 ip adress: wifi connection with quality
 -middle click: open nmtui";;
 	esac
-	ip="$(ip addr show | awk '/192/ {print$2}')"
+	ip="$(ip addr show | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -v '.*255\S*$\|127.0.0.1\S*$')"
 	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 		down) echo -n 'down ';;
 		up) echo "${ip%%/*} "
