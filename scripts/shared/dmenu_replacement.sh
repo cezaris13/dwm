@@ -3,6 +3,8 @@ line_number=$1
 template_data=$2
 font_size=$3
 dmenu_text=$4
+layout=$(xkb-switch -p);
+xkb-switch -s us;
 cat $(echo "../templates/"$template_data) | rofi -modi run -location 1 -width 100 \
 	-lines $line_number -line-margin 0 -line-padding 1 \
 	-disable-history \
@@ -16,3 +18,5 @@ cat $(echo "../templates/"$template_data) | rofi -modi run -location 1 -width 10
 	-theme-str 'entry { placeholder: ""; } inputbar { children: [prompt, textbox-prompt-colon, entry];}' \
 	-theme-str ' inputbar { children: [ prompt, textbox-prompt-colon, entry, case-indicator ];}    textbox-prompt-colon { text-color: inherit; expand: false; margin: 0 0.3em 0em 0em; str: ":"; }' \
 	-show | awk '{print $1}' | tr -d '\n'
+
+xkb-switch -s ${layout}
