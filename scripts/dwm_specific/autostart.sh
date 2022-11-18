@@ -13,7 +13,8 @@ fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
-sleep 1;picom -b &
+# sleep 1;picom -b &
+picom --experimental-backends &
 # mailspring &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap

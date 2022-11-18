@@ -112,7 +112,7 @@ static Key keys[] = {
 	{ Mod1Mask, XK_F3,				     	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./sleep.sh") },//F3
 	{ Mod1Mask, XK_F4,				    	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./keyboard.sh") },//F4
 	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./screenshot.sh") },
-	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("i3lock -f -o") },
+	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./lock.sh") },
 	{ MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh") },
 	{ MODKEY,						XK_F5, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh change_wallpaper") },
 	{ MODKEY,						XK_F7, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh change_orientation") },
