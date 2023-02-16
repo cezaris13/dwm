@@ -14,8 +14,10 @@ xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # rever
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
 # sleep 1;picom -b &
+sleep 1; picom -b --corner-radius=10 --rounded-corners-exclude="class_g = 'dwm'" --frame-opacity 0
 picom --experimental-backends &
 # mailspring &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
+xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh &

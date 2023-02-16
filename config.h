@@ -68,6 +68,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./rofi.sh") },
 	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_a,      spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -111,7 +112,8 @@ static Key keys[] = {
 	{ MODKEY,						XK_F6,	   spawn,	 	   SHCMD("mailspring") },
 	{ Mod1Mask, XK_F3,				     	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./sleep.sh") },//F3
 	{ Mod1Mask, XK_F4,				    	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./keyboard.sh") },//F4
-	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./screenshot.sh") },
+	{ 0, XK_Print,							   spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./screenshot.sh launch_spectacle") },
+	{ MODKEY|ShiftMask,         	XK_s,      spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./screenshot.sh launch_rectangular_region_in_background") },
 	{ MODKEY,						XK_F12,	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./lock.sh") },
 	{ MODKEY|ShiftMask,				XK_m, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh") },
 	{ MODKEY,						XK_F5, 	   spawn,		   SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./monitors.sh change_wallpaper") },

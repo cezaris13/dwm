@@ -9,4 +9,13 @@ function launch_spectacle() {
 	fi
 }
 
-launch_spectacle
+function launch_rectangular_region_in_background() {
+	spectacle -r -bc
+}
+
+case "$1" in
+	"") ;;
+	launch_spectacle) "$@"; exit;;
+	launch_rectangular_region_in_background) "$@"; exit;;
+	*) echo "unknown command"; exit 2;;
+esac

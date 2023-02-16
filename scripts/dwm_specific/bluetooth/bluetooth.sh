@@ -3,7 +3,7 @@
 function connect_headphones() {
 	command=$($HOME/.config/dwm/scripts/shared/./dmenu_replacement.sh 2 bluetooth_data.txt 10 "Sony_headphones")
 
-	earbuds="30:53:C1:3F:9D:F9"
+	earbuds="30:53:C1:6E:9D:DB"
 
 	#bluetoothctl pair $earbuds
 
