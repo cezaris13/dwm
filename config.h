@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1: terminal  ", "2: chromium ", "3: programming ", "4: teams ", "5: Latex ", "6: mail ", "7: messages ", "8: spotify ", "9" };
+static const char *tags[] = { "1: Terminal  ", "2: Chromium ", "3: Programming ", "4: Teams ", "5: Latex ", "6: Mail ", "7: Notes ", "8: Spotify ", "9" };
 
 static const Rule rules[] = {
 	/* class      		              instance    title       						tags mask   iscentered 		isfloating   floatpos   				monitor */

@@ -1,4 +1,4 @@
-wal -i "$(<"${HOME}/.cache/wal/wal")" &
+wal -n -i "$(<"${HOME}/.cache/wal/wal")" &
 $HOME/.config/dwm/scripts/dwm_specific/./monitors.sh &
 dwmblocks &
 nm-applet &
@@ -13,10 +13,9 @@ fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
-# sleep 1;picom -b &
-sleep 1; picom -b --corner-radius=10 --rounded-corners-exclude="class_g = 'dwm'" --frame-opacity 0
+# sleep 1; picom -b --corner-radius=10 --rounded-corners-exclude="class_g = 'dwm'" --frame-opacity 0
+sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
 picom --experimental-backends &
-# mailspring &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
