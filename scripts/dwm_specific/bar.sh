@@ -51,7 +51,7 @@ function network_utils() {
 	case $BLOCK_BUTTON in
 		1) pkill -RTMIN+4 dwmblocks;;
 		2) xterm -e nmtui;;
-		3) nmcli r wifi off; nmcli r wifi on;;
+		3) notify-send "Restarting internet connection..."; nmcli r wifi off; nmcli r wifi on;;
 	esac
 	ip="$(ip addr show | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -v '.*255\S*$\|127.0.0.1\S*$')"
 	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
