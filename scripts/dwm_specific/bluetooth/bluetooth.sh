@@ -19,9 +19,14 @@ function get_headphone_name() {
 	pacmd list-sinks | grep "bluez\.alias.*$" | sed "s/\s//g; s/bluez\.alias=\"//g;s/\"//g"
 }
 
+function rofi() {
+	rofi-bluetooth
+}
+
 case "$1" in
     "") ;;
     connect_headphones) "$@"; exit;;
     get_headphone_name) "$@"; exit;;
+	rofi) "$@"; exit;;
     *) echo "unknown command"; exit 2;;
 esac

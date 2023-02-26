@@ -34,6 +34,16 @@ function send_volume_notification() {
     percentage=$(fix_volume_percentage $percentage)
     kill -44 $(pidof dwmblocks)
     if [[ $quiet != "-q" ]]; then
+        notification
+    fi
+}
+
+function notification() {
+    volume_notification_flag=$(cat $HOME/.config/dwm/configs/flags | grep "NEW_VOLUME_NOTIFICATIONS" | grep -o "[0-9]*")
+    if [[ ! -z $volume_notification_flag && $volume_notification_flag -eq 1 ]]; then
+        percents=$(echo $percentage | grep -o "[0-9]*")
+        volnoti-show $percents
+    else
         notify-send --hint=string:x-dunst-stack-tag:volume "volume $percentage"
     fi
 }

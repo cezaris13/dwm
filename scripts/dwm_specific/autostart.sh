@@ -20,3 +20,4 @@ kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
 xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 1 &
+volnoti &

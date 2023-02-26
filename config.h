@@ -67,6 +67,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./rofi.sh") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/bluetooth/./bluetooth.sh rofi") },
 	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 0") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
