@@ -15,9 +15,11 @@ xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap cl
 redshift &
 # sleep 1; picom -b --corner-radius=10 --rounded-corners-exclude="class_g = 'dwm'" --frame-opacity 0
 sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
-picom --experimental-backends &
+# picom --experimental-backends &
+xborders &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
+skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc --start-daemon
 xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 1 &
 volnoti &

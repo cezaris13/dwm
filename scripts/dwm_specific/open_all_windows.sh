@@ -2,14 +2,10 @@
 
 function toggle_windows() {
 	close=$1
-	is_skippyXd_running=$(ps -aux | grep "skippy-xd" | grep -v "grep")
-	notify-send $is_skippyXd_running
-	if [[ ! -z "$is_skippyXd_running" ]]; then
-		if [[ $close -eq "1" ]]; then
-			killall skippy-xd;
-		fi
+	if [[ $close -eq "1" ]]; then
+			skippy-xd --toggle-window-picker;
 	else
-		skippy-xd;
+			skippy-xd --activate-window-picker;
 	fi
 }
 
