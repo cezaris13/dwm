@@ -22,4 +22,4 @@ xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
 skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc --start-daemon
 xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 1 &
-volnoti --config $HOME/.config/dwm/configs/volnoti.conf &
+tvolnoti --config $HOME/.config/dwm/configs/tvolnoti/tvolnoti.conf &

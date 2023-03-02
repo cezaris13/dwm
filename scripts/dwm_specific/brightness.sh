@@ -20,7 +20,7 @@ function send_notification() {
     brightness_notification_flag=$(cat $HOME/.config/dwm/configs/flags | grep "NEW_BRIGHTNESS_NOTIFICATIONS" | grep -o "[0-9]*")
     if [[ ! -z $brightness_notification_flag && $brightness_notification_flag -eq 1 ]]; then
         percents=$(printf "%.0f\n" $(xbacklight -get))
-        volnoti-show -b $percents
+        tvolnoti-show -b $percents
     else
         notify-send --hint=string:x-dunst-stack-tag:brightness "brightness: $(printf "%.0f\n" $(xbacklight -get)) %"
     fi
