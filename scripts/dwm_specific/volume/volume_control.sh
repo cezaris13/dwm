@@ -42,7 +42,7 @@ function notification() {
     volume_notification_flag=$(cat $HOME/.config/dwm/configs/flags | grep "NEW_VOLUME_NOTIFICATIONS" | grep -o "[0-9]*")
     if [[ ! -z $volume_notification_flag && $volume_notification_flag -eq 1 ]]; then
         percents=$(echo $percentage | grep -o "[0-9]*")
-        volnoti-show $percents
+        volnoti-show -v $percents
     else
         notify-send --hint=string:x-dunst-stack-tag:volume "volume $percentage"
     fi

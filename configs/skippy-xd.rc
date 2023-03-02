@@ -2,7 +2,8 @@
 distance = 50
 useNetWMFullscreen = true
 ignoreSkipTaskbar = true
-updateFreq = 10.0
+updateFreq = 60.0
+animationDuration = 300 # set = 0 to switch off animations
 lazyTrans = false
 pipePath = /tmp/skippy-xd-fifo
 movePointerOnStart = false
@@ -33,7 +34,6 @@ opacity = 200
 tint = #101020
 tintOpacity = 0
 opacity = 255
-
 
 [tooltip]
 show = true
