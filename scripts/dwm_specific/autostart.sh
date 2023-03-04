@@ -13,13 +13,12 @@ fusuma --config $HOME/.config/dwm/configs/fusuma.yml &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
-# sleep 1; picom -b --corner-radius=10 --rounded-corners-exclude="class_g = 'dwm'" --frame-opacity 0
 sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
-# picom --experimental-backends &
 xborders &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &
-skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc --start-daemon
+skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc --start-daemon &
 xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 1 &
 tvolnoti --config $HOME/.config/dwm/configs/tvolnoti/tvolnoti.conf &
+$HOME/.config/dwm/scripts/dwm_specific/./network.sh &
