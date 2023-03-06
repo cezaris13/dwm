@@ -46,7 +46,7 @@ function notify_network_status () {
 function notification() {
     network_notification_flag=$(cat $HOME/.config/dwm/configs/flags | grep "NEW_NETWORK_NOTIFICATIONS" | grep -o "[0-9]*")
     if [[ ! -z $network_notification_flag && $network_notification_flag -eq 1 ]]; then
-        tvolnoti-show -n -m -0 $1
+        tvolnoti-show -n -w -m -0 $1
     else
         notify-send --hint=string:x-dunst-stack-tag:volume "network $2"
     fi
