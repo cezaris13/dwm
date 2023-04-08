@@ -29,7 +29,7 @@ function volume_utils() {
 	esac
 	percentage=$(sh ./volume_control.sh get_volume_percentage)
 	percentage=$(sh ./volume_control.sh fix_volume_percentage $percentage)
-	echo -n "VOL $percentage "
+	echo -n "VOL $percentage"
 }
 
 function battery_utils() {
@@ -43,8 +43,8 @@ function battery_utils() {
 # add keychron battery status
 	esac
 	charging="$(cat /sys/class/power_supply/AC0/online)"
-	[ $charging -eq 1 ] && echo -n "    charging " || echo -n " discharging "
-	echo -n $(cat /sys/class/power_supply/BAT0/capacity)"% "
+	[ $charging -eq 1 ] && echo -n "   charging " || echo -n "discharging "
+	echo -n $(cat /sys/class/power_supply/BAT0/capacity)"%"
 }
 
 function network_utils() {
@@ -53,10 +53,11 @@ function network_utils() {
 		2) xterm -e nmtui;;
 		3) notify-send "Restarting internet connection..."; nmcli r wifi off; nmcli r wifi on;;
 	esac
-	ip="$(ip addr show | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -v '.*255\S*$\|127.0.0.1\S*$')"
+	ip="$(ip addr show | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -v '127.0.0.1\S*$')"
 	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-		down) echo -n 'down ';;
-		up) echo "${ip%%/*} "
+		down) echo -n 'down';;
+		up) echo "${ip%%/*}";;
+		*) echo " "
 	esac
 }
 
@@ -69,14 +70,14 @@ function calendar_utils() {
 }
 
 function layout_utils() {
-	[ $(xkblayout) == "Lit" ] && echo -n " LT " || echo -n " US "
+	[ $(xkblayout) == "Lit" ] && echo -n "LT" || echo -n "US"
 }
 
 function lock_key_utils() {
 	caps="$(xset -q | awk '/Caps/ {print $4}')"
 	num="$(xset -q | awk '/Caps/ {print $8}')"
-    [ $caps == "on" ] && echo -n "CAPS | " || echo -n "     | "
-    [ $num == "on" ] && echo -n "NUM " || echo -n "    "
+    [ $caps == "on" ] && echo -n " CAPS | " || echo -n "      | "
+    [ $num == "on" ] && echo -n "NUM" || echo -n "   "
 }
 
 module $val

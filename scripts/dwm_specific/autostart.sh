@@ -6,7 +6,7 @@ klipper &
 /usr/lib/polkit-kde-authentication-agent-1 &
 setxkbmap -layout us,lt -option 'grp:alt_shift_toggle' & #sita reiks pakoreguoti kad butu su dwm pkill
 $HOME/.config/dwm/scripts/dwm_specific/./keyboard.sh &
-xbindkeys &
+xbindkeys -f $HOME/.config/dwm/configs/xbindkeysrc  &
 numlockx on &
 dunst -config $HOME/.config/dwm/configs/dunstrc &
 fusuma --config $HOME/.config/dwm/configs/fusuma.yml &
@@ -14,7 +14,6 @@ xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # rever
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
 sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
-xborders &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # # pulseaudio-equalizer enable &

@@ -8,7 +8,7 @@ lazyTrans = false
 pipePath = /tmp/skippy-xd-fifo
 movePointerOnStart = false
 movePointerOnSelect = false
-movePointerOnRaise = true
+movePointerOnRaise = false
 switchDesktopOnActivate = false
 useNameWindowPixmap = false
 forceNameWindowPixmap = false
@@ -21,6 +21,8 @@ clientDisplayModes = thumbnail icon filled none
 iconFillSpec = orig mid mid #00FFFF
 fillSpec = orig mid mid #FFFFFF
 background =
+layout = xd
+cornerRadius=5
 
 [xinerama]
 showAll = true

@@ -21,7 +21,9 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "󰍡", "󰴓", "󰇮", "", "󰓇", "" };
+/* static const char *tags[] = { "", "", "", "󰍡", "󰴓", "󰇮", "", "󰓇", "" }; */
+static const char *tags[] = { "", "", "", "󰍡", "󰴓", "󰇮", "", "󰓇", "" };
+
 
 static const Rule rules[] = {
 	/* class      		              instance    title       						tags mask   iscentered 		isfloating   floatpos   				monitor */

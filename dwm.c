@@ -1229,7 +1229,7 @@ gettextprop(Window w, Atom atom, char *text, unsigned int size)
 	text[0] = '\0';
 	if (!XGetTextProperty(dpy, w, &name, atom) || !name.nitems)
 		return 0;
-	if (name.encoding == XA_STRING)
+	if (name.encoding == XA_STRING || name.encoding == XInternAtom(dpy, "UTF8_STRING", False))
 		strncpy(text, (char *)name.value, size - 1);
 	else {
 		if (XmbTextPropertyToTextList(dpy, &name, &list, &n) >= Success && n > 0 && *list) {
