@@ -7,7 +7,7 @@ function set_volume() {
     if [[ $volume_setting == "toggleSound" ]]; then
         default_sink=$(pactl info | grep "Default Sink:.*" | sed "s/Default Sink: //g")
         pactl set-sink-mute $default_sink toggle
-        send_volume_notification -q
+        send_volume_notification
     else
         bluetooth_headphones=$(sh $HOME/.config/dwm/scripts/dwm_specific/bluetooth/./bluetooth.sh get_headphone_name)
         if [[ ! -z $bluetooth_headphones ]]; then
@@ -42,7 +42,11 @@ function notification() {
     volume_notification_flag=$(cat $HOME/.config/dwm/configs/flags | grep "NEW_VOLUME_NOTIFICATIONS" | grep -o "[0-9]*")
     if [[ ! -z $volume_notification_flag && $volume_notification_flag -eq 1 ]]; then
         percents=$(echo $percentage | grep -o "[0-9]*")
-        tvolnoti-show -v $percents
+		if [[ -z $percents ]]; then
+			tvolnoti-show -m
+		else
+			tvolnoti-show -v $percents
+		fi
     else
         notify-send --hint=string:x-dunst-stack-tag:volume "volume $percentage"
     fi

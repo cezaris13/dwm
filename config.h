@@ -85,6 +85,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_grave,  focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 	{ MODKEY,                       XK_s,	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
