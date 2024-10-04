@@ -16,7 +16,7 @@ redshift &
 sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
-# # pulseaudio-equalizer enable &
+# pulseaudio-equalizer enable &
 skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc --start-daemon &
 xdotool behave_screen_edge top-right exec sh $HOME/.config/dwm/scripts/dwm_specific/./open_all_windows.sh 1 &
 tvolnoti --config $HOME/.config/dwm/configs/tvolnoti/tvolnoti.conf &
