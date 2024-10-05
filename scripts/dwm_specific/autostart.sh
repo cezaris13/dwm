@@ -1,3 +1,4 @@
+XDG_MENU_PREFIX=arch- kbuildsycoca6 &
 wal -n -i "$(<"${HOME}/.cache/wal/wal")" &
 $HOME/.config/dwm/scripts/dwm_specific/./monitors.sh &
 dwmblocks &
@@ -6,14 +7,14 @@ klipper &
 /usr/lib/polkit-kde-authentication-agent-1 &
 setxkbmap -layout us,lt -option 'grp:alt_shift_toggle' & #sita reiks pakoreguoti kad butu su dwm pkill
 $HOME/.config/dwm/scripts/dwm_specific/./keyboard.sh &
-xbindkeys -f $HOME/.config/dwm/configs/xbindkeysrc  &
+xbindkeys &
 numlockx on &
-dunst -config $HOME/.config/dwm/configs/dunstrc &
-fusuma --config $HOME/.config/dwm/configs/fusuma.yml &
+dunst &
+fusuma &
 xinput --set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1 # reverse scrolling
 xinput --set-prop "Elan Touchpad" "libinput Tapping Enabled" 1           #tap clicking
 redshift &
-sleep 1; picom -b --config $HOME/.config/dwm/configs/picom.conf &
+sleep 1; picom -b &
 kdeconnect-cli --refresh &
 xmodmap $HOME/.Xmodmap
 # pulseaudio-equalizer enable &

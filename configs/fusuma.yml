@@ -1,9 +1,0 @@
-swipe:
-    3:
-        left:
-            command: "xdotool key alt+Right" # History forward 
-        right:
-            command: "xdotool key alt+Left" # History back
-        up:
-            command: ". $HOME/.config/dwm/scripts/dwm_specific/open_all_windows.sh 1" # invoke toggle_all_windows script:w
-            
