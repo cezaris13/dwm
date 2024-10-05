@@ -1,4 +1,4 @@
-XDG_MENU_PREFIX=arch- kbuildsycoca6 &
+XDG_MENU_PREFIX=plasma- kbuildsycoca6 &
 wal -n -i "$(<"${HOME}/.cache/wal/wal")" &
 $HOME/.config/dwm/scripts/dwm_specific/./monitors.sh &
 dwmblocks &
