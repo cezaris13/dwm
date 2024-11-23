@@ -2,15 +2,15 @@
 
 function launch_spectacle() {
 	if pgrep -x spectacle >/dev/null; then
-		killall spectacle
-		spectacle -r
+		killall flameshot
+		flameshot gui -c
 	else
-		spectacle
+		flameshot gui -c
 	fi
 }
 
 function launch_rectangular_region_in_background() {
-	spectacle -r -bc
+	flameshot gui -c
 }
 
 case "$1" in
