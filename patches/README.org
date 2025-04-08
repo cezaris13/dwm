@@ -5,6 +5,10 @@
   + Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
 - dwm-center-6.2.diff
   + This patch starts program in the center of the current screen
+- dwm-deck-6.2.diff
+  + this patch adds 2 pane layout
+- dwm-deck-tilegap-6.1.diff
+  + this patch adds gaps for the 2 pane layout
 - dwm-floatpos-6.2.diff
   + This patch makes floating rules  patch work using relative coordinates on multi monitor setup
 - dwm-fullgaps-6.2.diff
