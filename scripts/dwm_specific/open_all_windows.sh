@@ -3,16 +3,16 @@
 function toggle_windows() {
 	close=$1
 	if [[ $close -eq "1" ]]; then
-			isSkippyActive=$(pgrep -f "skippy-xd --config.*$")
+			isSkippyActive=$(pgrep -f "skippy-xd$")
 			echo $isSkippyActive;
 			if [[ $isSkippyActive ]]; then
-			   pkill -TERM -f "skippy-xd --config.*$"
+			   pkill -TERM -f "skippy-xd$"
 			else
-				skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc;
+				skippy-xd;
 			fi
 	else
 			skippy-xd --start-daemon &
-			skippy-xd --config $HOME/.config/dwm/configs/skippy-xd.rc;
+			skippy-xd;
 	fi
 }
 
